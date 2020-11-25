@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js">
+    </script>
+    <title>Test</title>
+</head>
+<body>
+    <form>
+        ID:<input id="a">
+        姓名:<input id="b">
+        性别:<input id="c">
+        年龄:<input id="g">
+        症状:<input id="d">
+        密码:<input id="e">
+        tel:<input id="f">
+        <input onclick=action1() type = "button" value="注册">
+    </form>
+    <form action="/user/test" method="post">
+        ID:<input name="abc">
+        <input type="submit" value="登陆">
+    </form>
+    <script>
+        function action1(){
+            let xhr = new XMLHttpRequest()
+            xhr.open('POST', 'http://localhost:8081/user/login') // 设置请求行
+            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded')
+            let id = document.getElementById("a").value;
+            xhr.send('id='+id+'&name=1&pass=1&sex=1&age=1&detail=1&tel=1') // 以 urlencoded 格式设置请求体
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState==4 && xhr.status==200) {
+                    alert(xhr.responseText);//显示当前页面的代码，不是{“message”, 1}
+                }
+            }
+            // xhr.onload = function () {
+            //     if (xhr.readyState !== 4) return
+            //     console.log(xhr.responseText)
+            // }
+        }
+    </script>
+</body>
+</html>

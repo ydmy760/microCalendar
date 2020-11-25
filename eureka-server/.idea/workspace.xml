@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="c760f501-0732-4305-89f8-7bace113ecad" name="默认更改列表" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectId" id="1kMu7ARiJVD413HQdjy6bAl4GWE" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="project.structure.last.edited" value="模块" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
+  </component>
+  <component name="RunManager">
+    <configuration name="EurekaServerApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="eureka-server" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.baidu.EurekaServerApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Spring Boot.EurekaServerApplication" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="c760f501-0732-4305-89f8-7bace113ecad" name="默认更改列表" comment="" />
+      <created>1605522611691</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1605522611691</updated>
+      <workItem from="1605522617885" duration="4035000" />
+      <workItem from="1605610560107" duration="4190000" />
+      <workItem from="1605838233667" duration="3066000" />
+      <workItem from="1605939951676" duration="3267000" />
+      <workItem from="1606129585473" duration="1829000" />
+      <workItem from="1606142873978" duration="1864000" />
+      <workItem from="1606183292494" duration="2082000" />
+      <workItem from="1606204575346" duration="1095000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="199" y="19" key="#项目结构" timestamp="1605523123718">
+      <screen x="0" y="0" width="1213" height="720" />
+    </state>
+    <state x="199" y="19" key="#项目结构/0.0.1213.720@0.0.1213.720" timestamp="1605523123718" />
+    <state width="1171" height="325" key="GridCell.Tab.0.bottom" timestamp="1606205143195">
+      <screen x="0" y="0" width="1214" height="720" />
+    </state>
+    <state width="1169" height="357" key="GridCell.Tab.0.bottom/0.0.1213.720@0.0.1213.720" timestamp="1605570868606" />
+    <state width="1171" height="325" key="GridCell.Tab.0.bottom/0.0.1214.720@0.0.1214.720" timestamp="1606205143195" />
+    <state width="1171" height="325" key="GridCell.Tab.0.center" timestamp="1606205143194">
+      <screen x="0" y="0" width="1214" height="720" />
+    </state>
+    <state width="1169" height="357" key="GridCell.Tab.0.center/0.0.1213.720@0.0.1213.720" timestamp="1605570868605" />
+    <state width="1171" height="325" key="GridCell.Tab.0.center/0.0.1214.720@0.0.1214.720" timestamp="1606205143194" />
+    <state width="1171" height="325" key="GridCell.Tab.0.left" timestamp="1606205143193">
+      <screen x="0" y="0" width="1214" height="720" />
+    </state>
+    <state width="1169" height="357" key="GridCell.Tab.0.left/0.0.1213.720@0.0.1213.720" timestamp="1605570868605" />
+    <state width="1171" height="325" key="GridCell.Tab.0.left/0.0.1214.720@0.0.1214.720" timestamp="1606205143193" />
+    <state width="1171" height="325" key="GridCell.Tab.0.right" timestamp="1606205143194">
+      <screen x="0" y="0" width="1214" height="720" />
+    </state>
+    <state width="1169" height="357" key="GridCell.Tab.0.right/0.0.1213.720@0.0.1213.720" timestamp="1605570868606" />
+    <state width="1171" height="325" key="GridCell.Tab.0.right/0.0.1214.720@0.0.1214.720" timestamp="1606205143194" />
+    <state width="1171" height="325" key="GridCell.Tab.1.bottom" timestamp="1606205143196">
+      <screen x="0" y="0" width="1214" height="720" />
+    </state>
+    <state width="1169" height="357" key="GridCell.Tab.1.bottom/0.0.1213.720@0.0.1213.720" timestamp="1605570868607" />
+    <state width="1171" height="325" key="GridCell.Tab.1.bottom/0.0.1214.720@0.0.1214.720" timestamp="1606205143196" />
+    <state width="1171" height="325" key="GridCell.Tab.1.center" timestamp="1606205143196">
+      <screen x="0" y="0" width="1214" height="720" />
+    </state>
+    <state width="1169" height="357" key="GridCell.Tab.1.center/0.0.1213.720@0.0.1213.720" timestamp="1605570868607" />
+    <state width="1171" height="325" key="GridCell.Tab.1.center/0.0.1214.720@0.0.1214.720" timestamp="1606205143196" />
+    <state width="1171" height="325" key="GridCell.Tab.1.left" timestamp="1606205143196">
+      <screen x="0" y="0" width="1214" height="720" />
+    </state>
+    <state width="1169" height="357" key="GridCell.Tab.1.left/0.0.1213.720@0.0.1213.720" timestamp="1605570868606" />
+    <state width="1171" height="325" key="GridCell.Tab.1.left/0.0.1214.720@0.0.1214.720" timestamp="1606205143196" />
+    <state width="1171" height="325" key="GridCell.Tab.1.right" timestamp="1606205143196">
+      <screen x="0" y="0" width="1214" height="720" />
+    </state>
+    <state width="1169" height="357" key="GridCell.Tab.1.right/0.0.1213.720@0.0.1213.720" timestamp="1605570868607" />
+    <state width="1171" height="325" key="GridCell.Tab.1.right/0.0.1214.720@0.0.1214.720" timestamp="1606205143196" />
+    <state x="137" y="16" key="Maven.ArtifactSearchDialog" timestamp="1605523751713">
+      <screen x="0" y="0" width="1213" height="720" />
+    </state>
+    <state x="137" y="16" key="Maven.ArtifactSearchDialog/0.0.1213.720@0.0.1213.720" timestamp="1605523751713" />
+    <state x="306" y="185" key="com.intellij.ide.util.TipDialog" timestamp="1606204584011">
+      <screen x="0" y="0" width="1214" height="720" />
+    </state>
+    <state x="306" y="185" key="com.intellij.ide.util.TipDialog/0.0.1213.720@0.0.1213.720" timestamp="1605610684957" />
+    <state x="306" y="185" key="com.intellij.ide.util.TipDialog/0.0.1214.720@0.0.1214.720" timestamp="1606204584011" />
+    <state x="0" y="56" key="new project wizard" timestamp="1605839335622">
+      <screen x="0" y="0" width="1214" height="720" />
+    </state>
+    <state x="0" y="56" key="new project wizard/0.0.1213.720@0.0.1213.720" timestamp="1605610759601" />
+    <state x="0" y="56" key="new project wizard/0.0.1214.720@0.0.1214.720" timestamp="1605839335622" />
+  </component>
+</project>
