@@ -1,7 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c760f501-0732-4305-89f8-7bace113ecad" name="默认更改列表" comment="" />
+    <list default="true" id="c760f501-0732-4305-89f8-7bace113ecad" name="默认更改列表" comment="">
+      <change beforePath="$PROJECT_DIR$/../App/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../App/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../App/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../App/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../App/src/MicroservicePatient/java/com/patient/PatientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../App/src/MicroservicePatient/java/com/patient/PatientController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../App/src/MicroservicePatient/resourcesPatient/static/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/../App/src/MicroservicePatient/resourcesPatient/static/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../App/src/MicroservicePatient/resourcesPatient/static/test.html" beforeDir="false" afterPath="$PROJECT_DIR$/../App/src/MicroservicePatient/resourcesPatient/static/test.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DoctorMicro/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../DoctorMicro/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DoctorMicro/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../DoctorMicro/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DoctorMicro/src/Doctor/java/com/doctor/DoctorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../DoctorMicro/src/Doctor/java/com/doctor/DoctorController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DoctorMicro/src/Doctor/java/com/doctor/DoctorModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/../DoctorMicro/src/Doctor/java/com/doctor/DoctorModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DoctorMicro/target/classes/com/doctor/Activity.class" beforeDir="false" afterPath="$PROJECT_DIR$/../DoctorMicro/target/classes/com/doctor/Activity.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DoctorMicro/target/classes/com/doctor/Aggregate.class" beforeDir="false" afterPath="$PROJECT_DIR$/../DoctorMicro/target/classes/com/doctor/Aggregate.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DoctorMicro/target/classes/com/doctor/All_Take.class" beforeDir="false" afterPath="$PROJECT_DIR$/../DoctorMicro/target/classes/com/doctor/All_Take.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DoctorMicro/target/classes/com/doctor/Assignment.class" beforeDir="false" afterPath="$PROJECT_DIR$/../DoctorMicro/target/classes/com/doctor/Assignment.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DoctorMicro/target/classes/com/doctor/Doctor.class" beforeDir="false" afterPath="$PROJECT_DIR$/../DoctorMicro/target/classes/com/doctor/Doctor.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DoctorMicro/target/classes/com/doctor/DoctorController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../DoctorMicro/target/classes/com/doctor/DoctorController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DoctorMicro/target/classes/com/doctor/Take_in.class" beforeDir="false" afterPath="$PROJECT_DIR$/../DoctorMicro/target/classes/com/doctor/Take_in.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DoctorMicro/target/classes/com/doctor/Team.class" beforeDir="false" afterPath="$PROJECT_DIR$/../DoctorMicro/target/classes/com/doctor/Team.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DoctorMicro/target/classes/com/doctor/Timee.class" beforeDir="false" afterPath="$PROJECT_DIR$/../DoctorMicro/target/classes/com/doctor/Timee.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/META-INF/eureka-server.kotlin_module" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -14,7 +36,11 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
   <component name="ProjectId" id="1kMu7ARiJVD413HQdjy6bAl4GWE" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -26,6 +52,7 @@
     <property name="RequestMappingsPanelWidth0" value="75" />
     <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="node.js.detected.package.eslint" value="true" />
@@ -70,6 +97,9 @@
       <workItem from="1606142873978" duration="1864000" />
       <workItem from="1606183292494" duration="2082000" />
       <workItem from="1606204575346" duration="1095000" />
+      <workItem from="1607930758386" duration="1406000" />
+      <workItem from="1607946946544" duration="1229000" />
+      <workItem from="1608104611140" duration="1895000" />
     </task>
     <servers />
   </component>
@@ -81,55 +111,64 @@
       <screen x="0" y="0" width="1213" height="720" />
     </state>
     <state x="199" y="19" key="#项目结构/0.0.1213.720@0.0.1213.720" timestamp="1605523123718" />
-    <state width="1171" height="325" key="GridCell.Tab.0.bottom" timestamp="1606205143195">
-      <screen x="0" y="0" width="1214" height="720" />
+    <state width="1175" height="420" key="GridCell.Tab.0.bottom" timestamp="1607935413875">
+      <screen x="0" y="0" width="1218" height="720" />
     </state>
     <state width="1169" height="357" key="GridCell.Tab.0.bottom/0.0.1213.720@0.0.1213.720" timestamp="1605570868606" />
     <state width="1171" height="325" key="GridCell.Tab.0.bottom/0.0.1214.720@0.0.1214.720" timestamp="1606205143195" />
-    <state width="1171" height="325" key="GridCell.Tab.0.center" timestamp="1606205143194">
-      <screen x="0" y="0" width="1214" height="720" />
+    <state width="1175" height="420" key="GridCell.Tab.0.bottom/0.0.1218.720@0.0.1218.720" timestamp="1607935413875" />
+    <state width="1175" height="420" key="GridCell.Tab.0.center" timestamp="1607935413874">
+      <screen x="0" y="0" width="1218" height="720" />
     </state>
     <state width="1169" height="357" key="GridCell.Tab.0.center/0.0.1213.720@0.0.1213.720" timestamp="1605570868605" />
     <state width="1171" height="325" key="GridCell.Tab.0.center/0.0.1214.720@0.0.1214.720" timestamp="1606205143194" />
-    <state width="1171" height="325" key="GridCell.Tab.0.left" timestamp="1606205143193">
-      <screen x="0" y="0" width="1214" height="720" />
+    <state width="1175" height="420" key="GridCell.Tab.0.center/0.0.1218.720@0.0.1218.720" timestamp="1607935413874" />
+    <state width="1175" height="420" key="GridCell.Tab.0.left" timestamp="1607935413874">
+      <screen x="0" y="0" width="1218" height="720" />
     </state>
     <state width="1169" height="357" key="GridCell.Tab.0.left/0.0.1213.720@0.0.1213.720" timestamp="1605570868605" />
     <state width="1171" height="325" key="GridCell.Tab.0.left/0.0.1214.720@0.0.1214.720" timestamp="1606205143193" />
-    <state width="1171" height="325" key="GridCell.Tab.0.right" timestamp="1606205143194">
-      <screen x="0" y="0" width="1214" height="720" />
+    <state width="1175" height="420" key="GridCell.Tab.0.left/0.0.1218.720@0.0.1218.720" timestamp="1607935413874" />
+    <state width="1175" height="420" key="GridCell.Tab.0.right" timestamp="1607935413875">
+      <screen x="0" y="0" width="1218" height="720" />
     </state>
     <state width="1169" height="357" key="GridCell.Tab.0.right/0.0.1213.720@0.0.1213.720" timestamp="1605570868606" />
     <state width="1171" height="325" key="GridCell.Tab.0.right/0.0.1214.720@0.0.1214.720" timestamp="1606205143194" />
-    <state width="1171" height="325" key="GridCell.Tab.1.bottom" timestamp="1606205143196">
-      <screen x="0" y="0" width="1214" height="720" />
+    <state width="1175" height="420" key="GridCell.Tab.0.right/0.0.1218.720@0.0.1218.720" timestamp="1607935413875" />
+    <state width="1175" height="420" key="GridCell.Tab.1.bottom" timestamp="1607935413875">
+      <screen x="0" y="0" width="1218" height="720" />
     </state>
     <state width="1169" height="357" key="GridCell.Tab.1.bottom/0.0.1213.720@0.0.1213.720" timestamp="1605570868607" />
     <state width="1171" height="325" key="GridCell.Tab.1.bottom/0.0.1214.720@0.0.1214.720" timestamp="1606205143196" />
-    <state width="1171" height="325" key="GridCell.Tab.1.center" timestamp="1606205143196">
-      <screen x="0" y="0" width="1214" height="720" />
+    <state width="1175" height="420" key="GridCell.Tab.1.bottom/0.0.1218.720@0.0.1218.720" timestamp="1607935413875" />
+    <state width="1175" height="420" key="GridCell.Tab.1.center" timestamp="1607935413875">
+      <screen x="0" y="0" width="1218" height="720" />
     </state>
     <state width="1169" height="357" key="GridCell.Tab.1.center/0.0.1213.720@0.0.1213.720" timestamp="1605570868607" />
     <state width="1171" height="325" key="GridCell.Tab.1.center/0.0.1214.720@0.0.1214.720" timestamp="1606205143196" />
-    <state width="1171" height="325" key="GridCell.Tab.1.left" timestamp="1606205143196">
-      <screen x="0" y="0" width="1214" height="720" />
+    <state width="1175" height="420" key="GridCell.Tab.1.center/0.0.1218.720@0.0.1218.720" timestamp="1607935413875" />
+    <state width="1175" height="420" key="GridCell.Tab.1.left" timestamp="1607935413875">
+      <screen x="0" y="0" width="1218" height="720" />
     </state>
     <state width="1169" height="357" key="GridCell.Tab.1.left/0.0.1213.720@0.0.1213.720" timestamp="1605570868606" />
     <state width="1171" height="325" key="GridCell.Tab.1.left/0.0.1214.720@0.0.1214.720" timestamp="1606205143196" />
-    <state width="1171" height="325" key="GridCell.Tab.1.right" timestamp="1606205143196">
-      <screen x="0" y="0" width="1214" height="720" />
+    <state width="1175" height="420" key="GridCell.Tab.1.left/0.0.1218.720@0.0.1218.720" timestamp="1607935413875" />
+    <state width="1175" height="420" key="GridCell.Tab.1.right" timestamp="1607935413875">
+      <screen x="0" y="0" width="1218" height="720" />
     </state>
     <state width="1169" height="357" key="GridCell.Tab.1.right/0.0.1213.720@0.0.1213.720" timestamp="1605570868607" />
     <state width="1171" height="325" key="GridCell.Tab.1.right/0.0.1214.720@0.0.1214.720" timestamp="1606205143196" />
+    <state width="1175" height="420" key="GridCell.Tab.1.right/0.0.1218.720@0.0.1218.720" timestamp="1607935413875" />
     <state x="137" y="16" key="Maven.ArtifactSearchDialog" timestamp="1605523751713">
       <screen x="0" y="0" width="1213" height="720" />
     </state>
     <state x="137" y="16" key="Maven.ArtifactSearchDialog/0.0.1213.720@0.0.1213.720" timestamp="1605523751713" />
-    <state x="306" y="185" key="com.intellij.ide.util.TipDialog" timestamp="1606204584011">
-      <screen x="0" y="0" width="1214" height="720" />
+    <state x="307" y="185" key="com.intellij.ide.util.TipDialog" timestamp="1607946947931">
+      <screen x="0" y="0" width="1218" height="720" />
     </state>
     <state x="306" y="185" key="com.intellij.ide.util.TipDialog/0.0.1213.720@0.0.1213.720" timestamp="1605610684957" />
     <state x="306" y="185" key="com.intellij.ide.util.TipDialog/0.0.1214.720@0.0.1214.720" timestamp="1606204584011" />
+    <state x="307" y="185" key="com.intellij.ide.util.TipDialog/0.0.1218.720@0.0.1218.720" timestamp="1607946947931" />
     <state x="0" y="56" key="new project wizard" timestamp="1605839335622">
       <screen x="0" y="0" width="1214" height="720" />
     </state>

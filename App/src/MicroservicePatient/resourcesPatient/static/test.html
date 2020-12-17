@@ -33,7 +33,7 @@
 
             else {
                 let xhr = new XMLHttpRequest()
-                xhr.open('POST', 'http://localhost:8081/user/login') // 设置请求行
+                xhr.open('POST', 'http://localhost:8081/patient/register') // 设置请求行
                 xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded')
                 xhr.send('id=' + id + '&name=' + name + '&pass=' + pass + '&sex=' + sex + '&age=' + age + '&detail=' + detail + '&tel=' + tel + '') // 以 urlencoded 格式设置请求体
                 xhr.onreadystatechange = function () {

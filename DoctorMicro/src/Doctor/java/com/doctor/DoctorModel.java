@@ -18,6 +18,7 @@ public class DoctorModel {
 }
 
 class Doctor{
+    public String statement;
     private String id;
     public String name;
     public String sex;
@@ -28,6 +29,7 @@ class Doctor{
     public String e_mail;
     public boolean authority;
     public Doctor(Map<String,Object> map){
+        statement = "success";
         id = (String)map.get("id");
         name = (String) map.get("name");
         sex = (String)map.get("sex");
@@ -38,15 +40,23 @@ class Doctor{
         e_mail = (String) map.get("e_mail");
         authority = (boolean) map.get("authouity");
     }
+    public Doctor(){
+        statement = "Login";
+    }
 
 }
 class Timee{
 
 }
 class Aggregate{
+    public String statement;
     public List<Activity> activities;
-    public Aggregate(){
-
+    public Aggregate(boolean a){
+        if(a==true){
+            statement="success";
+        }
+        else
+            statement = "Login";
         activities = new ArrayList<Activity>();
     }
     public void append(Activity a){
@@ -55,6 +65,7 @@ class Aggregate{
 }
 
 class Team{
+    public String statement;
     public int t_id;
     public Date date;
     public Time start_time;
@@ -63,6 +74,7 @@ class Team{
     public String theme;
     public boolean sta;//是否完成
     public Team(Map<String,Object> map){
+        statement = "success";
         t_id = (int)map.get("t_id");
         date = (Date)map.get("date");
         start_time = (Time)map.get("time");
@@ -71,7 +83,11 @@ class Team{
         theme = (String) map.get("theme");
         sta = (boolean)map.get("statement");
     }
+    public Team(){
+        statement = "Login";
+    }
 }
+//与会人员
 class Take_in{
     public String id;
     public int t_id;
@@ -90,7 +106,7 @@ class All_Take{
         meets.add(take_in);
     }
 }
-
+//事物
 class Activity{
     private String id;//医生编号
     public String activity_id;
@@ -118,5 +134,13 @@ class Activity{
 
     public String getId() {
         return id;
+    }
+
+    public void setDetail(String detail) {
+        this.detail = detail;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 }

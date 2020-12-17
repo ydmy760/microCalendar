@@ -13,6 +13,7 @@ import org.springframework.web.servlet.view.RedirectView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.sql.Time;
 import java.util.List;
 import java.util.Map;
 
@@ -25,28 +26,25 @@ class Action {
     @Autowired
     private JdbcTemplate jdbcTemplate;
     private Patient patient;
+
     //注册账号
-    @RequestMapping("user/login")
+    @RequestMapping("patient/register")
     public String login(String id, String name, String pass, String sex, int age, String detail, String tel) {
-        patient = new Patient( id, pass, name, sex, age, detail, tel);
+        patient = new Patient(id, pass, name, sex, age, detail, tel);
         System.out.println(id);
         try {
             jdbcTemplate.update("INSERT INTO patient (id,name,sex,age,tel,detail,passwd) VALUES (?,?,?,?,?,?,?)", id, name, sex, age, tel, detail, pass);
             return "success";
-        }
-        catch (Exception e){
+        } catch (Exception e) {
             return "帐号已被注册";
         }
     }
-    //登录
-    @RequestMapping("user/test")
-    public ModelAndView test(HttpServletRequest request) {
 
-        RedirectView view = new RedirectView("/hello.html");
-        RedirectView view2 = new RedirectView("/login.html");
+    //登录
+    @RequestMapping("patient/login")
+    public boolean test(HttpServletRequest request) {
+
         String name = request.getParameter("abc");
-        ModelAndView mav = new ModelAndView();
-        mav.setView(view2);
 
         HttpSession httpSession = request.getSession();
         String passwd1 = request.getParameter("passwd");
@@ -55,37 +53,40 @@ class Action {
             System.out.println(password);
             System.out.println(passwd1);
             if (passwd1.equals(password) == true) {
-                httpSession.setAttribute("kin","patient");
-                return new ModelAndView(view);
+                httpSession.setAttribute("kin", "patient");
+                return true;
             } else {
-                mav.addObject("alert","密码错误");
-                return mav;
+                return false;
             }
-        }
-        catch(Exception e){
-            mav.addObject("alert","用户不存在");
-            return mav;
+        } catch (Exception e) {
+            return false;
         }
 
     }
-}
 
-@RestController
-class next {
-    @Autowired
-    private JdbcTemplate jdbcTemplate;
-
+        //返回患者信息
+        @RequestMapping("/patient")
+        public Patient patient(String id) {
+            List<Map<String, Object>> list = jdbcTemplate.queryForList("select * from patient where id = " + id);
+            Map<String, Object> map = list.get(0);
+            String id1 = map.get("id").toString();
+            String name = map.get("name").toString();
+            String tel = map.get("tel").toString();
+            int age = (int) map.get("age");
+            String sex = map.get("sex").toString();
+            String detail = map.get("detail").toString();
+            String passwd = map.get("passwd").toString();
+            Patient patient = new Patient(id1, passwd, name, sex, age, detail, tel);
+            return patient;
+        }
     @GetMapping("/user/name")
     public Long get() {
         return jdbcTemplate.queryForObject("select count(*) from patient", Long.class);
     }
-}
-@RestController
-class Uscona {
+    //实验
     @GetMapping("user/hello")
-
     public Doctor hello(HttpSession session) {
-        if(session.getAttribute("kin") == "patient") {
+        if (session.getAttribute("kin") == "patient") {
             Doctor doctor = new Doctor();
             doctor.setAge(59);
             doctor.setDepartment("骨科");
@@ -94,35 +95,10 @@ class Uscona {
             doctor.setTel("17317812xxx");
             doctor.setName("Alex");
             return doctor;
-        }
-        else {
-            Doctor doctor=new Doctor("请登录");
+        } else {
+            Doctor doctor = new Doctor("请登录");
             return doctor;
         }
-    }
-
-}
-
-@RestController
-class patient_check{
-    @Autowired
-    JdbcTemplate jdbcTemplate = new JdbcTemplate();
-
-
-    @RequestMapping("user/patient")
-    public Patient patient(String id){
-
-        List<Map<String, Object>> list = jdbcTemplate.queryForList("select * from patient where id = "+id);
-        Map<String, Object> map = list.get(0);
-        String id1 = map.get("id").toString();
-        String name = map.get("name").toString();
-        String tel = map.get("tel").toString();
-        int age = (int)map.get("age");
-        String sex = map.get("sex").toString();
-        String detail = map.get("detail").toString();
-        String passwd = map.get("passwd").toString();
-        Patient patient = new Patient(id1, passwd, name, sex, age, detail, tel);
-        return patient;
     }
 }
 //预约功能
