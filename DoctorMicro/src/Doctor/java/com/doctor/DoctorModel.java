@@ -15,6 +15,7 @@ public class DoctorModel {
     public static void main(String[] args) {
         SpringApplication.run(DoctorModel.class, args);
     }
+
 }
 
 class Doctor{

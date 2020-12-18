@@ -2,27 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e32fb3ec-2f5b-4d4b-9ebd-cf5d30ebac90" name="默认更改列表" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MicroservicePatient/java/com/patient/PatientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MicroservicePatient/java/com/patient/PatientController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MicroservicePatient/resourcesPatient/static/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/MicroservicePatient/resourcesPatient/static/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MicroservicePatient/resourcesPatient/static/test.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/MicroservicePatient/resourcesPatient/static/test.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DoctorMicro/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../DoctorMicro/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DoctorMicro/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../DoctorMicro/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DoctorMicro/src/Doctor/java/com/doctor/DoctorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../DoctorMicro/src/Doctor/java/com/doctor/DoctorController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DoctorMicro/src/Doctor/java/com/doctor/DoctorModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/../DoctorMicro/src/Doctor/java/com/doctor/DoctorModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DoctorMicro/target/classes/com/doctor/Activity.class" beforeDir="false" afterPath="$PROJECT_DIR$/../DoctorMicro/target/classes/com/doctor/Activity.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DoctorMicro/target/classes/com/doctor/Aggregate.class" beforeDir="false" afterPath="$PROJECT_DIR$/../DoctorMicro/target/classes/com/doctor/Aggregate.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DoctorMicro/target/classes/com/doctor/All_Take.class" beforeDir="false" afterPath="$PROJECT_DIR$/../DoctorMicro/target/classes/com/doctor/All_Take.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DoctorMicro/target/classes/com/doctor/Assignment.class" beforeDir="false" afterPath="$PROJECT_DIR$/../DoctorMicro/target/classes/com/doctor/Assignment.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DoctorMicro/target/classes/com/doctor/Doctor.class" beforeDir="false" afterPath="$PROJECT_DIR$/../DoctorMicro/target/classes/com/doctor/Doctor.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DoctorMicro/target/classes/com/doctor/DoctorController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../DoctorMicro/target/classes/com/doctor/DoctorController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DoctorMicro/target/classes/com/doctor/Take_in.class" beforeDir="false" afterPath="$PROJECT_DIR$/../DoctorMicro/target/classes/com/doctor/Take_in.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DoctorMicro/target/classes/com/doctor/Team.class" beforeDir="false" afterPath="$PROJECT_DIR$/../DoctorMicro/target/classes/com/doctor/Team.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DoctorMicro/target/classes/com/doctor/Timee.class" beforeDir="false" afterPath="$PROJECT_DIR$/../DoctorMicro/target/classes/com/doctor/Timee.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../eureka-server/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../eureka-server/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../eureka-server/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../eureka-server/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../eureka-server/target/classes/META-INF/eureka-server.kotlin_module" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

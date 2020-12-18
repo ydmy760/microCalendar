@@ -45,7 +45,7 @@ class Assignment{
     //调用活动 done
     @RequestMapping("/doctor/as")
     public Aggregate assignment(String id){
-
+        when_test();
         List<Map<String,Object>> list0 = jdbcTemplate.queryForList("select id,time_end,activity_id,date from activity_personal");
         list0.forEach((result)->help(result));
         if(session.getAttribute("kin")=="doctor") {
@@ -191,19 +191,16 @@ class Assignment{
         try {
             String password = jdbcTemplate.queryForObject("select passwd from doctor where id = '" + id + "'", String.class);
             boolean sta = jdbcTemplate.queryForObject("select authority_team from doctor where id = '"+id+"'",boolean.class);
-            System.out.println(password);
-            System.out.println(passwd1);
             if (passwd1.equals(password) == true) {
                 session.setAttribute("kin", "doctor");
                 session.setAttribute("statement", true);
                 session.setAttribute("id", id);
                 session.setAttribute("sta_team",sta);
                 object.put("state","success");
-                return object;
             } else {
                 object.put("state","passwrong");
-                return object;
             }
+            return object;
         } catch (Exception e) {
             object.put("state","idwrong");
             return object;
@@ -212,7 +209,7 @@ class Assignment{
     }
 
 
-    //建立团队已存在的团队加人 done
+    //已存在的团队加人 done
 
     @RequestMapping("/doctor/build")
     public JSONObject build( String id, int t_id){
@@ -246,8 +243,7 @@ class Assignment{
     }
 
     //返回所有不在组中的人 done
-
-    @RequestMapping("/doctor/groupwindow")
+    @RequestMapping("/doctor/people_notin_team")
     public  List<Map<String,Object>> check(int t_id){
         List<Map<String, Object>> list;
         if(session.getAttribute("kin")=="doctor") {
@@ -262,6 +258,113 @@ class Assignment{
         }
         return list;
     }
+
+    //返回所有在组中的人
+    @RequestMapping("/doctor/people_in_team")
+    public  List<Map<String,Object>> check_a(int t_id){
+        List<Map<String, Object>> list;
+        if(session.getAttribute("kin")=="doctor") {
+            list = jdbcTemplate.queryForList("select id,name from doctor where id in (select id from take_in where team_id='" + t_id + "')");
+            System.out.println(t_id);
+        }
+        else {
+            Map<String,Object> map = new HashMap<String,Object>();
+            map.put("state","Login");
+            list = new ArrayList<Map<String, Object>>();
+            list.add(map);
+        }
+        return list;
+    }
+
+    //删除团队中的人
+    @RequestMapping("/doctor/delete_member")
+    public JSONObject dele( String id, int t_id){
+        JSONObject object = new JSONObject();
+        if(session.getAttribute("kin")=="doctor"){
+            if((boolean)session.getAttribute("sta_team")) {
+                int a = jdbcTemplate.queryForObject("select count(*) from team where t_id=" + t_id, int.class);//没有这个队伍
+                int b = jdbcTemplate.queryForObject("select count(*) from doctor where id=" + id, int.class);//没有这个人
+                if (a == 0 || b == 0) {
+                    object.put("state", "notEx");
+                } else {
+                    try {
+                        jdbcTemplate.update("delete from take_in where id=? and team_id=?", id, t_id);
+                        object.put("state", "success");
+                    } catch (Exception e) {
+                        //记录已经添加
+                        object.put("state", "nobody");
+                    }
+                }
+            }
+            else
+            {
+                object.put("state","noauthority");
+            }
+        }
+        else{
+            object.put("state","Login");
+        }
+        return object;
+    }
+
+    //新建团队
+    @RequestMapping("/doctor/build_team")
+    public JSONObject build_team(String theme){
+        JSONObject jsonObject = new JSONObject();
+        String type = "1";
+        String id = (String) session.getAttribute("id");
+        Date date=new Date(System.currentTimeMillis());
+        if(session.getAttribute("kin")=="doctor" && (boolean)session.getAttribute("sta_team")){
+            jdbcTemplate.update("insert into team(date,type,leader_id,theme,statement)values (?,?,?,?,?)",date,type,id,theme,false);
+            int t_id = jdbcTemplate.queryForObject("select last_insert_id()",int.class);
+            jdbcTemplate.update("insert into take_in values(?,?)",id,t_id);
+            jsonObject.put("state","success");
+            jsonObject.put("t_id",t_id);
+        }
+        else{
+            jsonObject.put("state","wrong");
+            jsonObject.put("t_id","null");
+        }
+        return jsonObject;
+    }
+
+    //新建团队事务
+    @RequestMapping("/doctor/new_team_activity")
+    public JSONObject newateam(String id, String date1,String time_start1, String time_end1, String detail){
+        Date date = Date.valueOf(date1);
+        String type="1";
+        Time time_start = Time.valueOf(time_start1);
+        Time time_end = Time.valueOf(time_end1);
+        JSONObject object = new JSONObject();
+        if (session.getAttribute("kin") == "doctor") {
+            String activity_id = new String(String.valueOf(new java.util.Date().getTime()));
+            jdbcTemplate.update("insert into activity_personal values(?,?,?,?,?,?,?,?)",id,activity_id,date,time_start,time_end,detail,type,false);
+            object.put("state","success");
+            object.put("activityid",activity_id);
+        }
+        else{
+            object.put("state","Login");
+            object.put("activityid","null");
+        }
+        return object;
+    }
+
+    //修改团队 输入团队号要修改的主题
+    @RequestMapping("/doctor/correct_team")
+    public JSONObject correct_team(String t_id,String theme){
+        JSONObject jsonObject = new JSONObject();
+        String id = (String) session.getAttribute("id");
+        if(session.getAttribute("kin")=="doctor" && (boolean)session.getAttribute("sta_team")){
+            jdbcTemplate.update("update team set theme=? where id=? and t_id=?",theme,id,t_id);
+            jsonObject.put("state","success");
+        }
+        else{
+            jsonObject.put("state","wrong");
+        }
+        return jsonObject;
+    }
+
+
 
     //返回所有医生信息 done
 
@@ -283,32 +386,32 @@ class Assignment{
         list.add(doctor);
     }
 
-    //安排活动 done
-    @RequestMapping("doctor/appointment")
-    public JSONObject appointment(String id , Date date ,String type, Time starttime , Time endtime , String detail){
-        JSONObject jsonObject = new JSONObject();
-        if((boolean)session.getAttribute("statement")) {
-            if (session.getAttribute("kin") == "doctor" && !(boolean) session.getAttribute("sta_team")) {
-                jsonObject.put("state", "noauthority");
-            } else {
-                List<Time> start_times = new ArrayList<Time>();
-                List<Map<String, Object>> temp;
-                List<Time> end_times = new ArrayList<Time>();
-                temp = jdbcTemplate.queryForList("select time_start from activity_personal where id=" + id);
-
-                try {
-                    jdbcTemplate.update("insert into activity_personal(id, date, time_start, time_end, detail,type,state)", id, date, starttime, endtime, detail, type, false);
-                    jsonObject.put("state", "success");
-                } catch (Exception e) {
-                    jsonObject.put("state", "wrong");
-                }
-            }
-        }
-        else{
-            jsonObject.put("state","Login");
-        }
-        return jsonObject;
-    }
+//    //安排活动 done
+//    @RequestMapping("doctor/appointment")
+//    public JSONObject appointment(String id , Date date ,String type, Time starttime , Time endtime , String detail){
+//        JSONObject jsonObject = new JSONObject();
+//        if((boolean)session.getAttribute("statement")) {
+//            if (session.getAttribute("kin") == "doctor" && !(boolean) session.getAttribute("sta_team")) {
+//                jsonObject.put("state", "noauthority");
+//            } else {
+//                List<Time> start_times = new ArrayList<Time>();
+//                List<Map<String, Object>> temp;
+//                List<Time> end_times = new ArrayList<Time>();
+//                temp = jdbcTemplate.queryForList("select time_start from activity_personal where id=" + id);
+//
+//                try {
+//                    jdbcTemplate.update("insert into activity_personal(id, date, time_start, time_end, detail,type,state)", id, date, starttime, endtime, detail, type, false);
+//                    jsonObject.put("state", "success");
+//                } catch (Exception e) {
+//                    jsonObject.put("state", "wrong");
+//                }
+//            }
+//        }
+//        else{
+//            jsonObject.put("state","Login");
+//        }
+//        return jsonObject;
+//    }
 
 
     //获取时间
