@@ -114,7 +114,7 @@ class Activity{
     public Date date;//日期
     public Time time_start;//事件开始
     public Time time_end;//事件结束
-    private String detail;//事件说明
+    public String detail;//事件说明
     public String type;//事件类型
     public boolean state;//事件标志
 

@@ -20,10 +20,7 @@ import java.text.SimpleDateFormat;
 import java.time.Instant;
 import java.time.LocalDate;
 import java.time.ZoneId;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class DoctorController {
 }
@@ -46,7 +43,7 @@ class Assignment{
     @RequestMapping("/doctor/as")
     public Aggregate assignment(String id){
         when_test();
-        List<Map<String,Object>> list0 = jdbcTemplate.queryForList("select id,time_end,activity_id,date from activity_personal");
+        List<Map<String,Object>> list0 = jdbcTemplate.queryForList("select id,time_end,activity_id,date,type from activity_personal");
         list0.forEach((result)->help(result));
         if(session.getAttribute("kin")=="doctor") {
             Aggregate aggregate = new Aggregate(true);
@@ -73,8 +70,10 @@ class Assignment{
         String id = (String)map.get("id");
         String activity_id = (String)map.get("activity_id");
         Date date_sql = (Date)map.get("date");
+        String type = (String)map.get("type");
+        System.out.println(type);
         java.util.Date date_sel = new java.util.Date(date_sql.getTime());
-        if(date_sel.compareTo(date)==-1){
+        if(date_sel.compareTo(date)==-1 && !Objects.equals(type, "changed")){
             jdbcTemplate.update("update activity_personal set state=? where id=? and activity_id=?",true,id,activity_id);
         }
     }
