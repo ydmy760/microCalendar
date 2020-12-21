@@ -110,6 +110,11 @@ class Assignment{
         return  jsonObject;
     }
 
+    @RequestMapping("/doctor/correct_new")
+    public void aaa(String activity_id){
+        String id = (String) session.getAttribute("id");
+        jdbcTemplate.update("update activity_personal set state=? where id=? and activity_id=?",true,id,activity_id);
+    }
     //新建活动 done
 
     @RequestMapping("/doctor/new")
@@ -368,16 +373,10 @@ class Assignment{
     //返回所有医生信息 done
 
     @RequestMapping("/doctor/doctor_info")
-    public List<Doctor> select(){
+    public List<Doctor> select(String dep){
         List<Doctor> doctors = new ArrayList<Doctor>();
-        if((boolean)session.getAttribute("statement")) {
-            List<Map<String, Object>> list = jdbcTemplate.queryForList("select * from doctor");
-            list.forEach((result) -> kh(result, doctors));
-        }
-        else{
-            Doctor doctor = new Doctor();
-            doctors.add(doctor);
-        }
+        List<Map<String, Object>> list = jdbcTemplate.queryForList("select * from doctor where department=?",dep);
+        list.forEach((result) -> kh(result, doctors));
         return doctors;
     }
     public void kh(Map<String,Object> map, List<Doctor> list){

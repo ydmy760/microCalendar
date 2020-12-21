@@ -24,22 +24,22 @@ class Doctor{
     public String name;
     public String sex;
     public boolean authority_team;
-    public boolean authority_arrange;
+    public String position;
     public String department;
     public String tel;
     public String e_mail;
-    public boolean authority;
+    public String pic;
     public Doctor(Map<String,Object> map){
         statement = "success";
         id = (String)map.get("id");
         name = (String) map.get("name");
         sex = (String)map.get("sex");
-        authority_arrange = (boolean) map.get("authority_arrange");
+        position = (String)map.get("position");
         authority_team = (boolean) map.get("authority_team");
         department = (String) map.get("department");
         tel = (String) map.get("tel");
+        pic = (String)map.get("pic");
         e_mail = (String) map.get("e_mail");
-        authority = (boolean) map.get("authouity");
     }
     public Doctor(){
         statement = "Login";
