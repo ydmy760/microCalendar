@@ -3,11 +3,13 @@ package com.doctor;
 import com.alibaba.fastjson.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.client.RestTemplate;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.web.filter.CorsFilter;
@@ -25,12 +27,19 @@ import java.util.*;
 public class DoctorController {
 }
 
+@Configuration
 @RestController
 class Assignment{
+    @Bean
+    public RestTemplate getRestTemplate(){
+        return new RestTemplate();
+    }
     @Autowired
     JdbcTemplate jdbcTemplate = new JdbcTemplate();
     @Autowired
     HttpSession session;
+    @Autowired
+    private RestTemplate restTemplate;
 
     public void when_test(){
         session.setAttribute("kin", "doctor");
@@ -84,6 +93,82 @@ class Assignment{
         aggregate.append(activity);
     }
 
+
+    //获取同科室的医生名单
+    @RequestMapping("/doctor/get_member")
+    public List<Map<String,Object>> geta(String doctor_id){
+        if(session.getAttribute("kin")=="doctor") {
+            if((boolean)session.getAttribute("sta_team")) {
+                try {
+                    List<Map<String, Object>> list = jdbcTemplate.queryForList("select id,name from doctor where department=(select department from doctor where id=?)", doctor_id);
+                    return list;
+                } catch (Exception e) {
+                    List<Map<String, Object>> list = new ArrayList<>();
+                    Map<String, Object> map = new HashMap<>();
+                    map.put("state", "wrong_db");
+                    list.add(map);
+                    return list;
+                }
+            }
+            else{
+                List<Map<String, Object>> list = new ArrayList<>();
+                Map<String, Object> map = new HashMap<>();
+                map.put("state", "id_wrong");
+                list.add(map);
+                return list;
+            }
+        }
+        else{
+            List<Map<String, Object>> list = new ArrayList<>();
+            Map<String, Object> map = new HashMap<>();
+            map.put("state", "Login");
+            list.add(map);
+            return list;
+        }
+    }
+
+    //分配门诊
+    @RequestMapping("/doctor/arr")
+    public JSONObject arrangement(String doctor_id, int number,String date1){
+        JSONObject object = new JSONObject();
+        if(session.getAttribute("kin")=="doctor"){
+            if((boolean)session.getAttribute("sta_team")){
+                Time start_time;
+                Time end_time;
+                Date date = Date.valueOf(date1);
+                String activity_id = new String(String.valueOf(new java.util.Date().getTime()));
+                String id=(String)session.getAttribute("id");
+                if(number==1){
+                    start_time=Time.valueOf("08:00:00");
+                    end_time=Time.valueOf("11:30:00");
+                }
+                else{
+                    start_time=Time.valueOf("14:00:00");
+                    end_time=Time.valueOf("17:30:00");
+                }
+                Map<String,Object> map=new HashMap<>();
+                map.put("doctor_id",doctor_id);
+                map.put("date1",date1);
+                map.put("number",number);
+                try {
+                    //jdbcTemplate.update("insert into activity_personal values (?,?,?,?,?,?,?,?)", doctor_id, activity_id, date, start_time, end_time, "门诊", id, false);
+                    boolean a=restTemplate.getForObject("http://localhost:8081/patient/add_doc?doctor_id={doctor_id}&date1={date1}&number={number}",boolean.class,map);
+                    object.put("state", "success");
+                }
+                catch(Exception e){
+                    object.put("state","wrong_db");
+                }
+            }
+            else{
+                object.put("state","wrong_id");
+            }
+        }
+        else{
+            object.put("state","Login");
+        }
+        return object;
+    }
+
     //修改活动 done
 
     @RequestMapping("/doctor/correct")
@@ -110,12 +195,7 @@ class Assignment{
         return  jsonObject;
     }
 
-    @RequestMapping("/doctor/correct_new")
-    public void aaa(String activity_id){
-        String id = (String) session.getAttribute("id");
-        jdbcTemplate.update("update activity_personal set state=? where id=? and activity_id=?",true,id,activity_id);
-    }
-    //新建活动 done
+
 
     @RequestMapping("/doctor/new")
     public JSONObject newEstab(String date1,String time_start1, String time_end1, String detail, String type){
