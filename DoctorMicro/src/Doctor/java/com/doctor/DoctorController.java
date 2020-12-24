@@ -48,10 +48,12 @@ class Assignment{
         session.setAttribute("sta_team",true);
     }
 
+
+
     //调用活动 done
     @RequestMapping("/doctor/as")
     public Aggregate assignment(String id){
-        when_test();
+        //when_test();
         List<Map<String,Object>> list0 = jdbcTemplate.queryForList("select id,time_end,activity_id,date,type from activity_personal");
         list0.forEach((result)->help(result));
         if(session.getAttribute("kin")=="doctor") {

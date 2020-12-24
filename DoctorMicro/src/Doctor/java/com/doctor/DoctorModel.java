@@ -20,7 +20,7 @@ public class DoctorModel {
 
 class Doctor{
     public String statement;
-    private String id;
+    public String id;
     public String name;
     public String sex;
     public boolean authority_team;

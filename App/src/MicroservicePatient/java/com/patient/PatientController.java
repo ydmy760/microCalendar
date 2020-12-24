@@ -111,6 +111,12 @@ class Action {
 
     }
 
+    //返回每个时间段的分配数量
+    @RequestMapping("/doctor/get_time")
+    public List<Map<String,Object>> ar(){
+        List<Map<String,Object>> list = jdbcTemplate.queryForList("select date,item_id,count(*) as counting from doc_pat group by date,item_id");
+        return list;
+    }
     //获取可以预约的时间
     @RequestMapping("/patient/get_doctor_time")
     public Aggregate timeUse(String doctor_id) {

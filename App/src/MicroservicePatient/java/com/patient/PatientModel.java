@@ -24,7 +24,7 @@ public class PatientModel {
 //定义医生类
 class Doctor{
     public String statement;
-    private String id;
+    public String id;
     public String name;
     public String sex;
     public String position;
@@ -50,7 +50,7 @@ class Doctor{
 class Time_use{
     public Time start_time;
     public Date date;
-    int capacity;
+    public int capacity;
     public String doctor;
     public int item;
     public Time_use(Map<String,Object> map){
