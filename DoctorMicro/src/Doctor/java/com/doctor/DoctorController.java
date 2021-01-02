@@ -53,11 +53,12 @@ class Assignment {
 
     //调用活动 done
     @RequestMapping("/doctor/as")
-    public Aggregate assignment(String id) {
+    public Aggregate assignment() {
         //when_test();
         List<Map<String, Object>> list0 = jdbcTemplate.queryForList("select id,time_end,activity_id,date,type from activity_personal");
         list0.forEach((result) -> help(result));
         if (session.getAttribute("kin") == "doctor") {
+            String id=(String)session.getAttribute("id");
             Aggregate aggregate = new Aggregate(true);
             if (id == null) {
                 List<Map<String, Object>> list = jdbcTemplate.queryForList("select * from activity_personal ");
