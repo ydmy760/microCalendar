@@ -23,6 +23,7 @@ import java.time.Instant;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.*;
+import org.springframework.web.client.RestTemplate;
 
 public class DoctorController {
 }
@@ -149,8 +150,8 @@ class Assignment {
                 map.put("date1", date1);
                 map.put("number", number);
                 try {
-                    //jdbcTemplate.update("insert into activity_personal values (?,?,?,?,?,?,?,?)", doctor_id, activity_id, date, start_time, end_time, "门诊", id, false);
-                    boolean a = restTemplate.getForObject("http://localhost:8081/patient/add_doc?doctor_id={doctor_id}&date1={date1}&number={number}", boolean.class, map);
+                    jdbcTemplate.update("insert into activity_personal values (?,?,?,?,?,?,?,?)", doctor_id, activity_id, date, start_time, end_time, "门诊", id, false);
+                    boolean a = restTemplate.getForObject("http://micro_calender_patient/patient/add_doc?doctor_id={doctor_id}&date1={date1}&number={number}", boolean.class, map);
                     object.put("state", "success");
                 } catch (Exception e) {
                     object.put("state", "wrong_db");
@@ -263,21 +264,20 @@ class Assignment {
     //登录 done
 
     @RequestMapping("doctor/login")
-    public JSONObject test(String id, String passwd1) {
+    public JSONObject test(String id, String passwd1,HttpServletRequest request) {
 
-//        String name = request.getParameter("abc");
         JSONObject object = new JSONObject();
-
-//        String passwd1 = request.getParameter("passwd");
         try {
             String password = jdbcTemplate.queryForObject("select passwd from doctor where id = '" + id + "'", String.class);
             boolean sta = jdbcTemplate.queryForObject("select authority_team from doctor where id = '" + id + "'", boolean.class);
             if (passwd1.equals(password) == true) {
+                session = request.getSession();
                 session.setAttribute("kin", "doctor");
                 session.setAttribute("statement", true);
                 session.setAttribute("id", id);
                 session.setAttribute("sta_team", sta);
                 object.put("state", "success");
+                object.put("authority",sta);
             } else {
                 object.put("state", "passwrong");
             }
@@ -289,6 +289,20 @@ class Assignment {
 
     }
 
+    // 返回所有团队列表
+    @RequestMapping("/doctor/my_team")
+    public List<Map<String,Object>> abc(){
+        List<Map<String,Object>> list;
+        if(session.getAttribute("id")!=null) {
+            String id = (String) session.getAttribute("id");
+            list = jdbcTemplate.queryForList("select * from team where leader_id=?",id);
+            return list;
+        }
+        else{
+            list=new ArrayList<>();
+            return list;
+        }
+    }
 
     //已存在的团队加人 done
 
@@ -450,7 +464,7 @@ class Assignment {
         JSONObject jsonObject = new JSONObject();
         String id = (String) session.getAttribute("id");
         if(session.getAttribute("kin")=="doctor" && (boolean)session.getAttribute("sta_team")){
-            jdbcTemplate.update("update team set theme=? where id=? and t_id=?",theme,id,t_id);
+            jdbcTemplate.update("update team set theme=? where t_id=? ",theme,t_id);
             jsonObject.put("state","success");
         }
         else{
@@ -475,32 +489,6 @@ class Assignment {
         list.add(doctor);
     }
 
-//    //安排活动 done
-//    @RequestMapping("doctor/appointment")
-//    public JSONObject appointment(String id , Date date ,String type, Time starttime , Time endtime , String detail){
-//        JSONObject jsonObject = new JSONObject();
-//        if((boolean)session.getAttribute("statement")) {
-//            if (session.getAttribute("kin") == "doctor" && !(boolean) session.getAttribute("sta_team")) {
-//                jsonObject.put("state", "noauthority");
-//            } else {
-//                List<Time> start_times = new ArrayList<Time>();
-//                List<Map<String, Object>> temp;
-//                List<Time> end_times = new ArrayList<Time>();
-//                temp = jdbcTemplate.queryForList("select time_start from activity_personal where id=" + id);
-//
-//                try {
-//                    jdbcTemplate.update("insert into activity_personal(id, date, time_start, time_end, detail,type,state)", id, date, starttime, endtime, detail, type, false);
-//                    jsonObject.put("state", "success");
-//                } catch (Exception e) {
-//                    jsonObject.put("state", "wrong");
-//                }
-//            }
-//        }
-//        else{
-//            jsonObject.put("state","Login");
-//        }
-//        return jsonObject;
-//    }
 
 
     //获取时间
