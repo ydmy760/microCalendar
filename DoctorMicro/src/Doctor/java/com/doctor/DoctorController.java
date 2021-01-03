@@ -152,7 +152,7 @@ class Assignment {
                 map.put("number", number);
                 try {
                     jdbcTemplate.update("insert into activity_personal values (?,?,?,?,?,?,?,?)", doctor_id, activity_id, date, start_time, end_time, "门诊", id, false);
-                    boolean a = restTemplate.getForObject("http://micro_calender_patient/patient/add_doc?doctor_id={doctor_id}&date1={date1}&number={number}", boolean.class, map);
+                    boolean a = restTemplate.getForObject("http://micro-calender-patient/patient/add_doc?doctor_id={doctor_id}&date1={date1}&number={number}", boolean.class, map);
                     object.put("state", "success");
                 } catch (Exception e) {
                     object.put("state", "wrong_db");
